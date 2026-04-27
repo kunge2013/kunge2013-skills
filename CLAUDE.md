@@ -81,21 +81,71 @@ Use `/release-skills` workflow. Never skip:
 3. `README.md` + `README.zh.md` if applicable
 4. All files committed together before tag
 
-## Code Style
+## Development
 
-TypeScript, no comments, async/await, short variable names, type-safe interfaces.
+**Running Tests**:
+```bash
+# Run all tests (Bun test)
+npm test
 
-## Adding New Skills
+# Run specific test file
+npm test path/to/test.test.ts
 
-All skills MUST use `kunge2013-` prefix. Details: [docs/creating-skills.md](docs/creating-skills.md)
+# Generate coverage report
+npm run test:coverage
 
-## Reference Docs
+# Run Node-compatible tests only
+node ./scripts/run-node-tests.mjs
+```
+
+**Shared Packages**:
+- `baoyu-chrome-cdp`: Chrome DevTools Protocol utilities for browser automation
+- `baoyu-fetch`: URL fetching with Chrome CDP and site adapters (X, WeChat, etc.)
+- `baoyu-md`: Markdown rendering, HTML conversion, WeChat themes
+
+Build shared packages before publishing:
+```bash
+cd packages/baoyu-chrome-cdp && npm run build
+cd packages/baoyu-fetch && npm run build
+cd packages/baoyu-md && npm run build
+```
+
+**Code Style**
+
+TypeScript, no comments, async/await, short variable names, type-safe interfaces. Immutability required — use spread operator, never mutate objects in-place.
+
+**Reference Docs**
 
 | Topic | File |
 |-------|------|
+| Creating new skills | [docs/creating-skills.md](docs/creating-skills.md) |
+| Skill authoring best practices | https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices |
 | Image generation output guidelines | [docs/image-generation.md](docs/image-generation.md) |
 | Image generation backend selection | [docs/image-generation-tools.md](docs/image-generation-tools.md) |
 | User input tool convention | [docs/user-input-tools.md](docs/user-input-tools.md) |
 | Chrome profile platform paths | [docs/chrome-profile.md](docs/chrome-profile.md) |
 | Comic style maintenance | [docs/comic-style-maintenance.md](docs/comic-style-maintenance.md) |
 | ClawHub/OpenClaw publishing | [docs/publishing.md](docs/publishing.md) |
+
+## Adding New Skills
+
+**Required**: `kunge2013-` prefix, max 64 chars, third-person description. See [docs/creating-skills.md](docs/creating-skills.md) for full workflow.
+
+**Skill Structure**:
+```
+skills/kunge2013-<name>/
+├── SKILL.md              # Main docs (<500 lines)
+├── references/           # Optional: additional docs loaded on-demand
+├── prompts/             # Optional: prompt templates
+└── scripts/             # Optional: TypeScript implementation
+    ├── main.ts          # Entry point
+    └── *.test.ts        # Tests
+```
+
+**Registration**: All skills registered under single `kunge2013-skills` plugin in `.claude-plugin/marketplace.json`.
+
+**SKILL.md Requirements**:
+- YAML front matter with name, description, version, metadata
+- Description max 1024 chars, third person
+- Body under 500 lines, use `references/` for additional content
+- Script Directory section if skill has `scripts/` subdirectory
