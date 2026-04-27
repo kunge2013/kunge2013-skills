@@ -5,11 +5,18 @@
   "author": "kunge2013",
   "skills": [
     {
-      "name": "example-skill",
-      "path": "skills/example-skill",
-      "description": "An example skill demonstrating basic structure and functionality",
+      "name": "hello-world",
+      "path": "skills/hello-world",
+      "description": "A simple greeting skill that demonstrates basic functionality",
       "version": "1.0.0",
       "category": "demo"
+    },
+    {
+      "name": "skill-creator",
+      "path": "skills/skill-creator",
+      "description": "Guide for creating effective skills",
+      "version": "1.0.0",
+      "category": "utility"
     }
   ]
 }
