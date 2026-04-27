@@ -5,6 +5,7 @@
 ## 📋 目录
 
 - [项目介绍](#项目介绍)
+- [可用 Skills](#可用-skills)
 - [安装方式](#安装方式)
 - [使用指南](#使用指南)
 - [创建自定义 Skills](#创建自定义-skills)
@@ -49,6 +50,50 @@ npm install github:kunge2013/kunge2013-skills#v1.0.0
 # 或者直接安装
 /plugin install kunge2013-skills
 ```
+
+## 📦 可用 Skills
+
+本仓库包含以下自定义 skills：
+
+### 🎯 Content Skills
+
+### 🤖 AI Generation Skills
+
+### 🛠️ Utility Skills
+
+#### hello-world
+- **功能**: 一个简单的问候技能，演示基本功能
+- **用途**: 测试 skill 加载和基本交互
+- **示例**: `/hello-world`
+
+#### skill-creator
+- **功能**: 创建有效技能的指南和模板
+- **用途**: 为开发人员提供创建新 skill 的最佳实践和结构模板
+- **适用场景**: 需要开发自定义 skill 时
+
+#### p-a-a (Project Architecture Analyzer)
+- **功能**: 项目架构分析器 - 分析代码库以了解其业务目的、技术栈
+- **用途**:
+  - 请求项目架构分析时
+  - 询问"这个项目是做什么的？"
+  - 需要技术栈文档或架构图时
+  - 了解业务需求与技术实现之间的关系
+- **输出**: 生成详细的 PlantUML 架构图，展示组件关系和技术映射
+- **示例**: `/p-a-a`
+
+#### puml2jpg
+- **功能**: 将 PlantUML (.puml) 图表文件转换为图片格式 (PNG/JPG)
+- **用途**:
+  - 用户提供 .puml 文件路径并请求转换为图片时
+  - 需要可视化 PlantUML 图表时
+  - 自动将生成的图片放在与源文件相同的目录
+- **依赖**: 使用 public PlantUML 服务器 (plantuml.com) 进行处理
+- **示例**: `/puml2jpg /path/to/diagram.puml`
+
+### 📊 Analysis Skills
+
+#### p-a-a
+- 见上方的 Utility Skills 部分
 
 ## 使用指南
 

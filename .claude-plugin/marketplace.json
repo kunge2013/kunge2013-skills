@@ -28,6 +28,28 @@
       },
       "source": "./skills/skill-creator",
       "category": "utility"
+    },
+    {
+      "name": "p-a-a",
+      "description": "该技能用于分析代码库以了解其业务目的、技术栈，以及每个技术组件如何解决特定的业务或技术需求。当用户请求项目架构分析、技术栈文档或架构图时使用此技能。",
+      "version": "1.0.0",
+      "author": {
+        "name": "kunge2013",
+        "email": ""
+      },
+      "source": "./skills/p-a-a",
+      "category": "analysis"
+    },
+    {
+      "name": "puml2jpg",
+      "description": "This skill converts PlantUML (.puml) diagram files to image formats (JPG/PNG). Use this skill when the user provides a .puml file path and requests conversion to an image.",
+      "version": "1.0.0",
+      "author": {
+        "name": "kunge2013",
+        "email": ""
+      },
+      "source": "./skills/puml2jpg/puml2jpg",
+      "category": "utility"
     }
   ]
 }
