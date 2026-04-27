@@ -1,7 +1,7 @@
 {
   "name": "kunge2013-skills",
   "version": "1.0.0",
-  "description": "Personal Claude Code skills hub marketplace",
+  "description": "Personal Claude Code skills hub marketplace with project architecture analysis, diagram tools, and productivity utilities",
   "main": "index.js",
   "scripts": {
     "test": "echo 'Error: no test specified' && exit 0",
@@ -18,7 +18,11 @@
     "skills",
     "marketplace",
     "ai",
-    "productivity"
+    "productivity",
+    "architecture-analysis",
+    "plantuml",
+    "diagram",
+    "code-analysis"
   ],
   "author": "kunge2013",
   "license": "MIT",

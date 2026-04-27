@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **p-a-a (Project Architecture Analyzer)** - Skill for analyzing codebases to understand business purpose, tech stack, and component relationships with PlantUML diagram generation
+- **puml2jpg** - PlantUML diagram to image conversion skill supporting PNG/JPG formats
+- Skill categories: demo, utility, analysis
+- Updated marketplace.json with new skills registration
+
+### Documentation
+- Enhanced README.md with detailed skills descriptions and usage examples
+- Added skills categorization section
+- Updated project structure documentation
+- Added skills reference section in README
+
+### Fixed
+- Corrected skills directory paths in marketplace.json (puml2jpg)
+- Updated all example-skill references to hello-world in documentation
+
 ## [1.0.0] - 2026-04-27
 
 ### Added

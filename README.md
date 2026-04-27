@@ -112,10 +112,10 @@ npm install github:kunge2013/kunge2013-skills#v1.0.0
 
 ```bash
 # 使用示例 skill
-/example-skill --message "Hello World"
+/hello-world --message "Hello World"
 
 # 启用详细模式
-/example-skill --message "Test" --verbose
+/hello-world --message "Test" --verbose
 ```
 
 ### 技能管理
@@ -129,10 +129,10 @@ npm run validate
 
 # 测试特定 skill（需要 Bun 运行时）
 # 如果安装了 bun
-bun skills/example-skill/scripts/main.ts --help
+bun skills/hello-world/scripts/main.ts --help
 
 # 或者使用 ts-node
-npx ts-node skills/example-skill/scripts/main.ts --help
+npx ts-node skills/hello-world/scripts/main.ts --help
 ```
 
 ## 创建自定义 Skills
@@ -170,7 +170,7 @@ npm run validate
 
 ### Skill 模板
 
-参考 `skills/example-skill/` 目录，这是一个完整的示例 skill，包含：
+参考 `skills/hello-world/` 目录，这是一个完整的示例 skill，包含：
 
 - 完整的 SKILL.md 文档
 - TypeScript 实现代码
@@ -187,13 +187,22 @@ kunge2013-skills/
 ├── .claude-plugin/
 │   └── marketplace.json          # Marketplace 配置
 ├── skills/                       # Skills 目录
-│   ├── example-skill/            # 示例 skill（参考模板）
+│   ├── hello-world/            # 示例 skill（参考模板）
 │   │   ├── SKILL.md
 │   │   ├── scripts/
 │   │   │   ├── main.ts          # TypeScript 实现
 │   │   │   └── main.test.ts     # 测试文件
 │   │   ├── prompts/
 │   │   └── references/
+│   ├── skill-creator/          # Skill 创建指南
+│   ├── p-a-a/                 # 项目架构分析器
+│   │   ├── SKILL.md
+│   │   ├── assets/             # PlantUML 模板
+│   │   └── references/         # 技术映射参考
+│   ├── puml2jpg/              # PlantUML 转图片工具
+│   │   ├── SKILL.md
+│   │   ├── scripts/            # 转换脚本
+│   │   └── references/         # 参考文档
 │   └── your-skill/              # 你的自定义 skills
 ├── docs/                         # 文档目录
 │   ├── installation.md           # 详细安装指南
@@ -312,20 +321,20 @@ GitHub Actions 会自动处理发布流程。
 npm install kunge2013-skills
 
 # 使用
-/example-skill
+/hello-world
 
 # 带参数
-/example-skill --message "Custom message"
+/hello-world --message "Custom message"
 
 # 详细模式
-/example-skill --message "Test" --verbose
+/hello-world --message "Test" --verbose
 ```
 
 ### 创建新 Skill
 
 ```bash
 # 复制示例 skill
-cp -r skills/example-skill skills/my-skill
+cp -r skills/hello-world skills/my-skill
 
 # 修改 SKILL.md 中的元数据
 # 编辑 scripts/main.ts 实现你的功能
@@ -359,8 +368,8 @@ npm run validate
 使用详细模式或设置 DEBUG 环境变量：
 
 ```bash
-/example-skill --verbose
-DEBUG=true /example-skill
+/hello-world --verbose
+DEBUG=true /hello-world
 ```
 
 ### Skill 无法加载？
