@@ -1,0 +1,33 @@
+{
+  "name": "kunge2013-skills",
+  "version": "1.0.0",
+  "description": "Personal Claude Code skills hub with custom productivity tools",
+  "owner": {
+    "name": "kunge2013",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "hello-world",
+      "description": "A simple greeting skill that demonstrates basic functionality",
+      "version": "1.0.0",
+      "author": {
+        "name": "kunge2013",
+        "email": ""
+      },
+      "source": "./skills/hello-world",
+      "category": "demo"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Guide for creating effective skills",
+      "version": "1.0.0",
+      "author": {
+        "name": "kunge2013",
+        "email": ""
+      },
+      "source": "./skills/skill-creator",
+      "category": "utility"
+    }
+  ]
+}

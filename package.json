@@ -1,0 +1,29 @@
+{
+  "name": "kunge2013-skills",
+  "version": "1.0.0",
+  "description": "Personal Claude Code skills hub marketplace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 0",
+    "build": "echo 'Skills are ready-to-use, no build step required'",
+    "sync": "node scripts/sync-skills.js",
+    "validate": "node scripts/validate-skills.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunge2013/kunge2013-skills.git"
+  },
+  "keywords": [
+    "claude-code",
+    "skills",
+    "marketplace",
+    "ai",
+    "productivity"
+  ],
+  "author": "kunge2013",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kunge2013/kunge2013-skills/issues"
+  },
+  "homepage": "https://github.com/kunge2013/kunge2013-skills#readme"
+}
