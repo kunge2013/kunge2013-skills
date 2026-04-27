@@ -1,175 +1,409 @@
-# Creating New Skills
+# 创建自定义 Skills 指南
 
-**REQUIRED READING**: [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+本文档详细说明如何为 Kunge2013 Skills Hub 创建和发布自定义 skills。
 
-## Key Requirements
+## Skill 基本概念
 
-| Requirement | Details |
-|-------------|---------|
-| **Prefix** | All skills MUST use `kunge2013-` prefix |
-| **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, no "anthropic"/"claude" |
-| **description** | Max 1024 chars, third person, include what + when to use |
-| **SKILL.md body** | Keep under 500 lines; use `references/` for additional content |
-| **References** | One level deep from SKILL.md; avoid nested references |
+Claude Code Skill 是一个可重用的 AI 工具，包含：
 
-## SKILL.md Frontmatter Template
+- **SKILL.md**: 定义 skill 的元数据、描述和使用方法
+- **scripts/**: 可选的 TypeScript/JavaScript 实现
+- **prompts/**: 可选的提示词模板
+- **references/**: 可选的参考文档和资源
 
-```yaml
+## 创建 Skill 的步骤
+
+### 步骤 1: 创建目录结构
+
+```bash
+# 创建新的 skill 目录
+mkdir -p skills/my-custom-skill
+
+# 创建必要的子目录
+mkdir -p skills/my-custom-skill/scripts
+mkdir -p skills/my-custom-skill/prompts
+mkdir -p skills/my-custom-skill/references
+```
+
+### 步骤 2: 创建 SKILL.md
+
+`SKILL.md` 是 skill 的核心文件，包含 YAML 前置数据和 Markdown 文档：
+
+```markdown
 ---
-name: kunge2013-<name>
-description: <Third-person description. What it does + when to use it.>
-version: <semver matching marketplace.json>
-metadata:
-  openclaw:
-    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-<name>
-    requires:          # include only if skill has scripts
-      anyBins:
-        - bun
-        - npx
+name: my-custom-skill
+description: Brief description of what this skill does (max 1024 chars)
+version: 1.0.0
+author: kunge2013
+category: utility
+tags: [automation, productivity]
 ---
+
+# My Custom Skill
+
+## 描述
+
+详细描述这个 skill 的功能和用途。
+
+## 使用方法
+
+在 Claude Code 中使用此 skill 的方法。
+
+### 示例
+
+```bash
+/my-custom-skill --option value
 ```
 
-## Steps
+## 参数说明
 
-1. Create `skills/kunge2013-<name>/SKILL.md` with YAML front matter
-2. Add TypeScript in `skills/kunge2013-<name>/scripts/` (if applicable)
-3. Add prompt templates in `skills/kunge2013-<name>/prompts/` if needed
-4. Register the skill in `.claude-plugin/marketplace.json` under the `kunge2013-skills` plugin entry
-5. Add Script Directory section to SKILL.md if skill has scripts
-6. Add openclaw metadata to frontmatter
+| 参数 | 类型 | 必需 | 描述 |
+|------|------|------|------|
+| --option | string | 否 | 参数说明 |
 
-## Skill Grouping
+## 配置
 
-All skills are registered under the single `kunge2013-skills` plugin. Use these logical groups when deciding where the skill should appear in the docs:
+如果 skill 需要配置，说明如何配置。
 
-| If your skill... | Use group |
-|------------------|-----------|
-| Generates visual content (images, slides, comics) | Content Skills |
-| Publishes to platforms (X, WeChat, Weibo) | Content Skills |
-| Provides AI generation backend | AI Generation Skills |
-| Converts or processes content | Utility Skills |
+## 限制和注意事项
 
-If you add a new logical group, update the docs that present grouped skills, but keep the skill registered under the single `kunge2013-skills` plugin entry.
-
-## Writing Descriptions
-
-**MUST write in third person**:
-
-```yaml
-# Good
-description: Generates Xiaohongshu infographic series from content. Use when user asks for "小红书图片", "XHS images".
-
-# Bad
-description: I can help you create Xiaohongshu images
+列出任何限制或需要注意的事项。
 ```
 
-## Script Directory Template
+**SKILL.md 要求**:
+- 前置数据必须包含 `name`, `description`, `version`
+- `description` 最大 1024 字符
+- 文档内容建议不超过 500 行
+- 使用第三人称描述
 
-Every SKILL.md with scripts MUST include:
+### 步骤 3: 创建实现代码（可选）
+
+如果 skill 需要 JavaScript/TypeScript 实现：
+
+```typescript
+// skills/my-custom-skill/scripts/main.ts
+
+#!/usr/bin/env node
+
+interface Options {
+  option?: string;
+  verbose?: boolean;
+}
+
+export async function main(options: Options = {}) {
+  const { option, verbose = false } = options;
+
+  if (verbose) {
+    console.log('Running with options:', options);
+  }
+
+  // 实现你的 skill 逻辑
+  console.log(`Custom skill running with option: ${option || 'default'}`);
+
+  return {
+    success: true,
+    result: `Processed: ${option || 'default'}`
+  };
+}
+
+// CLI 入口
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  const options: Options = {
+    option: args[0],
+    verbose: args.includes('--verbose')
+  };
+
+  main(options)
+    .then(result => {
+      console.log(JSON.stringify(result, null, 2));
+      process.exit(0);
+    })
+    .catch(error => {
+      console.error('Error:', error.message);
+      process.exit(1);
+    });
+}
+```
+
+### 步骤 4: 创建测试文件（可选）
+
+```typescript
+// skills/my-custom-skill/scripts/main.test.ts
+
+import { describe, it, expect } from 'bun:test';
+import { main } from './main';
+
+describe('My Custom Skill', () => {
+  it('should run successfully', async () => {
+    const result = await main({ option: 'test' });
+    expect(result.success).toBe(true);
+  });
+
+  it('should handle default option', async () => {
+    const result = await main({});
+    expect(result.result).toContain('default');
+  });
+});
+```
+
+### 步骤 5: 创建提示词模板（可选）
 
 ```markdown
-## Script Directory
+<!-- skills/my-custom-skill/prompts/template.md -->
+---
+name: task-template
+description: Template for common tasks
+---
 
-**Important**: All scripts are located in the `scripts/` subdirectory of this skill.
+请帮我完成以下任务：
+- [ ] {{task1}}
+- [ ] {{task2}}
 
-**Agent Execution Instructions**:
-1. Determine this SKILL.md file's directory path as `{baseDir}`
-2. Script path = `{baseDir}/scripts/<script-name>.ts`
-3. Resolve `${BUN_X}` runtime: if `bun` installed → `bun`; if `npx` available → `npx -y bun`; else suggest installing bun
-4. Replace all `{baseDir}` and `${BUN_X}` in this document with actual values
-
-**Script Reference**:
-| Script | Purpose |
-|--------|---------|
-| `scripts/main.ts` | Main entry point |
+注意事项：
+{{notes}}
 ```
 
-## Progressive Disclosure
-
-For skills with extensive content:
-
-```
-skills/kunge2013-example/
-├── SKILL.md              # Main instructions (<500 lines)
-├── references/
-│   ├── styles.md         # Loaded as needed
-│   └── examples.md       # Loaded as needed
-└── scripts/
-    └── main.ts
-```
-
-Link from SKILL.md (one level deep only):
-```markdown
-**Available styles**: See [references/styles.md](references/styles.md)
-```
-
-## Extension Support (EXTEND.md)
-
-Every SKILL.md MUST include EXTEND.md loading. Add as Step 1.1 (workflow skills) or "Preferences" section (utility skills):
+### 步骤 6: 添加参考文档（可选）
 
 ```markdown
-**1.1 Load Preferences (EXTEND.md)**
+<!-- skills/my-custom-skill/references/api-docs.md -->
+# API 参考文档
 
-Check EXTEND.md existence (priority order):
-
-\`\`\`bash
-test -f .kunge2013-skills/<skill-name>/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/kunge2013-skills/<skill-name>/EXTEND.md" && echo "xdg"
-test -f "$HOME/.kunge2013-skills/<skill-name>/EXTEND.md" && echo "user"
-\`\`\`
-
-| Path | Location |
-|------|----------|
-| `.kunge2013-skills/<skill-name>/EXTEND.md` | Project directory |
-| `$XDG_CONFIG_HOME/kunge2013-skills/<skill-name>/EXTEND.md` | XDG config (~/.config) |
-| `$HOME/.kunge2013-skills/<skill-name>/EXTEND.md` | User home (legacy) |
-
-| Result | Action |
-|--------|--------|
-| Found | Read, parse, display summary |
-| Not found | Ask user via the runtime's user-input tool (see [user-input-tools.md](user-input-tools.md)) |
+详细的 API 使用说明...
 ```
 
-End of SKILL.md should include:
-```markdown
-## Extension Support
-Custom configurations via EXTEND.md. See **Step 1.1** for paths and supported options.
+## 注册 Skill
+
+### 更新 marketplace.json
+
+在 `.claude-plugin/marketplace.json` 中注册新 skill：
+
+```json
+{
+  "name": "kunge2013-skills",
+  "version": "1.0.0",
+  "description": "Personal Claude Code skills hub",
+  "author": "kunge2013",
+  "skills": [
+    {
+      "name": "my-custom-skill",
+      "path": "skills/my-custom-skill",
+      "description": "Brief description of the skill",
+      "version": "1.0.0",
+      "category": "utility"
+    }
+  ]
+}
 ```
 
-## User Input Tools Section (Required)
+### 验证 Skill
 
-Every SKILL.md that prompts the user for choices MUST include exactly one `## User Input Tools` section near the top (right after the intro, before the main workflow). The rule must be **inlined** — do NOT link to `docs/user-input-tools.md` (skills are self-contained; see [CLAUDE.md → Skill Self-Containment](../CLAUDE.md)). The author-side canonical reference lives at [user-input-tools.md](user-input-tools.md); copy its body into each new SKILL.md.
+运行验证脚本确保 skill 配置正确：
 
-Standard snippet (copy verbatim):
-
-```markdown
-## User Input Tools
-
-When this skill prompts the user, follow this tool-selection rule (priority order):
-
-1. **Prefer built-in user-input tools** exposed by the current agent runtime — e.g., `AskUserQuestion`, `request_user_input`, `clarify`, `ask_user`, or any equivalent.
-2. **Fallback**: if no such tool exists, emit a numbered plain-text message and ask the user to reply with the chosen number/answer for each question.
-3. **Batching**: if the tool supports multiple questions per call, combine all applicable questions into a single call; if only single-question, ask them one at a time in priority order.
-
-Concrete `AskUserQuestion` references below are examples — substitute the local equivalent in other runtimes.
+```bash
+npm run validate
 ```
 
-## Image Generation Tools Section (Required for image-gen skills)
+## Skill 最佳实践
 
-Every SKILL.md that renders images — whether by calling an image-generation API directly or by delegating to another skill — MUST include exactly one `## Image Generation Tools` section near the top (after `## User Input Tools`, before the main workflow). The rule must be **inlined** — do NOT link to `docs/image-generation-tools.md` (skills are self-contained; see [CLAUDE.md → Skill Self-Containment](../CLAUDE.md)). The author-side canonical reference lives at [image-generation-tools.md](image-generation-tools.md); copy its body into each new SKILL.md.
+### 命名规范
 
-Standard snippet (copy verbatim):
+- 使用 kebab-case: `my-custom-skill`
+- 包含 `kunge2013-` 前缀（如果是官方 skill）
+- 名字最大 64 个字符
+- 使用描述性名称
 
-```markdown
-## Image Generation Tools
+### 文档规范
 
-When this skill needs to render an image:
+- 使用清晰的 Markdown 格式
+- 提供使用示例
+- 包含参数说明
+- 添加错误处理说明
 
-- **Use whatever image-generation tool or skill is available** in the current runtime — e.g., Codex `imagegen`, Hermes `image_generate`, `kunge2013-imagine`, or any equivalent the user has installed.
-- **If multiple are available**, ask the user **once** at the start which to use (batch with any other initial questions).
-- **If none are available**, tell the user and ask how to proceed.
+### 代码规范
 
-**Prompt file requirement (hard)**: write each image's full, final prompt to a standalone file under `prompts/` (naming: `NN-{type}-[slug].md`) BEFORE invoking any backend. The backend receives the prompt file (or its content); the file is the reproducibility record and lets you switch backends without regenerating prompts.
+- 使用 TypeScript 进行类型检查
+- 保持代码简洁
+- 添加适当的错误处理
+- 编写测试用例
 
-Concrete tool names (`imagegen`, `image_generate`, `kunge2013-imagine`) above are examples — substitute the local equivalents under the same rule.
+### 错误处理
+
+```typescript
+export async function main(options: Options = {}) {
+  try {
+    // 验证输入
+    if (!options.required && options.required !== false) {
+      throw new Error('Required option is missing');
+    }
+
+    // 执行逻辑
+    const result = await process(options);
+
+    return { success: true, result };
+  } catch (error) {
+    console.error('Error executing skill:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+}
 ```
+
+## 测试 Skill
+
+### 本地测试
+
+```bash
+# 直接运行
+bun skills/my-custom-skill/scripts/main.ts --option test
+
+# 或通过 npm
+npm run test
+```
+
+### 在 Claude Code 中测试
+
+```bash
+# 启动 Claude Code
+claude
+
+# 在 Claude Code 中使用 skill
+/my-custom-skill --option test
+```
+
+## 发布 Skill
+
+### 版本控制
+
+1. 更新 `SKILL.md` 中的版本号
+2. 更新 `CHANGELOG.md`
+3. 提交代码：
+```bash
+git add .
+git commit -m "feat: add my-custom-skill v1.0.0"
+git push
+```
+
+### 发布到 GitHub
+
+```bash
+# 打标签
+git tag -a v1.0.0 -m "Release version 1.0.0"
+
+# 推送标签
+git push origin v1.0.0
+
+# 或推送所有标签
+git push --tags
+```
+
+### 发布到 npm（可选）
+
+```bash
+# 更新主版本
+npm version major
+
+# 发布
+npm publish
+```
+
+## 高级功能
+
+### 依赖其他 Skills
+
+如果 skill 依赖其他 skills：
+
+```typescript
+import { executeSkill } from './utils/skill-helper';
+
+export async function main(options: Options = {}) {
+  const dependencyResult = await executeSkill('other-skill', {
+    param: options.value
+  });
+
+  return { ... };
+}
+```
+
+### 环境变量
+
+```typescript
+const apiKey = process.env.MY_SKILL_API_KEY;
+if (!apiKey) {
+  throw new Error('MY_SKILL_API_KEY environment variable is required');
+}
+```
+
+### 配置文件
+
+```typescript
+import fs from 'fs';
+import path from 'path';
+
+const configPath = path.join(process.env.HOME, '.kunge2013-skills', 'config.json');
+const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+```
+
+## 调试技巧
+
+### 启用详细日志
+
+```typescript
+const DEBUG = process.env.DEBUG === 'true';
+
+function debug(...args: any[]) {
+  if (DEBUG) {
+    console.log('[DEBUG]', ...args);
+  }
+}
+```
+
+### 错误追踪
+
+```typescript
+export async function main(options: Options = {}) {
+  const startTime = Date.now();
+
+  try {
+    debug('Starting with options:', options);
+
+    // ... 逻辑 ...
+
+    debug(`Completed in ${Date.now() - startTime}ms`);
+    return { success: true };
+  } catch (error) {
+    debug('Error:', error);
+    throw error;
+  }
+}
+```
+
+## 示例 Skills
+
+查看现有 skills 作为参考：
+
+- `skills/example-skill/` - 基础 skill 示例
+- `skills/advanced-skill/` - 高级功能示例
+
+## 常见问题
+
+### Q: Skill 无法加载？
+
+A: 检查 `SKILL.md` 格式是否正确，确保 YAML 前置数据有效。
+
+### Q: 如何调试 skill？
+
+A: 启用 `DEBUG=true` 环境变量，或使用 `--verbose` 选项。
+
+### Q: 可以使用外部库吗？
+
+A: 可以，在 `scripts/` 目录中安装依赖，但建议保持依赖最少。
+
+## 需要更多帮助？
+
+- 查看 [Skills 参考手册](skills-reference.md)
+- 检查 GitHub Issues
+- 提交新的 Issue 或 Pull Request

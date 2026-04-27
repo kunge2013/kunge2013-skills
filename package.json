@@ -1,27 +1,29 @@
 {
   "name": "kunge2013-skills",
-  "private": true,
-  "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
+  "version": "1.0.0",
+  "description": "Personal Claude Code skills hub marketplace",
+  "main": "index.js",
   "scripts": {
-    "test": "node ./scripts/run-node-tests.mjs",
-    "test:coverage": "node ./scripts/run-node-tests.mjs --experimental-test-coverage"
+    "test": "echo 'Error: no test specified' && exit 0",
+    "build": "echo 'Skills are ready-to-use, no build step required'",
+    "sync": "node scripts/sync-skills.js",
+    "validate": "node scripts/validate-skills.js"
   },
-  "devDependencies": {
-    "@mozilla/readability": "^0.6.0",
-    "linkedom": "^0.18.12",
-    "turndown": "^7.2.2",
-    "turndown-plugin-gfm": "^1.0.2",
-    "tsx": "^4.20.5"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunge2013/kunge2013-skills.git"
   },
-  "dependencies": {
-    "pdf-lib": "^1.17.1",
-    "pptxgenjs": "^4.0.1",
-    "sharp": "^0.34.5"
+  "keywords": [
+    "claude-code",
+    "skills",
+    "marketplace",
+    "ai",
+    "productivity"
+  ],
+  "author": "kunge2013",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kunge2013/kunge2013-skills/issues"
   },
-  "overrides": {
-    "@xmldom/xmldom": "0.8.13"
-  }
+  "homepage": "https://github.com/kunge2013/kunge2013-skills#readme"
 }

@@ -1,8 +1,0 @@
-{
-  "name": "kunge2013-danger-gemini-web-scripts",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "kunge2013-chrome-cdp": "^0.1.0"
-  }
-}
