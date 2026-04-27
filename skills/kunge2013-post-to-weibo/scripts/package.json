@@ -1,0 +1,9 @@
+{
+  "name": "kunge2013-post-to-weibo-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "kunge2013-chrome-cdp": "^0.1.0",
+    "kunge2013-md": "^0.1.0"
+  }
+}

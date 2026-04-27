@@ -1,0 +1,8 @@
+{
+  "name": "kunge2013-markdown-to-html-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "kunge2013-md": "^0.1.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "kunge2013-danger-x-to-markdown-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "kunge2013-chrome-cdp": "^0.1.0"
+  }
+}
