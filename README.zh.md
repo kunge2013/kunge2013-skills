@@ -14,7 +14,7 @@
 ### 快速安装（推荐）
 
 ```bash
-npx skills add jimliu/kunge2013-skills
+npx skills add kunge2013/kunge2013-skills
 ```
 
 ### 发布到 ClawHub / OpenClaw
@@ -43,7 +43,7 @@ clawhub install kunge2013-markdown-to-html
 在 Claude Code 中运行：
 
 ```bash
-/plugin marketplace add JimLiu/kunge2013-skills
+/plugin marketplace add kunge2013/kunge2013-skills
 ```
 
 ### 安装技能
@@ -66,7 +66,7 @@ clawhub install kunge2013-markdown-to-html
 
 直接告诉 Claude Code：
 
-> 请帮我安装 github.com/JimLiu/kunge2013-skills 中的 Skills
+> 请帮我安装 github.com/kunge2013/kunge2013-skills 中的 Skills
 
 ### 可用插件
 
@@ -1272,4 +1272,4 @@ MIT
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JimLiu/kunge2013-skills&type=Date)](https://www.star-history.com/#JimLiu/kunge2013-skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=kunge2013/kunge2013-skills&type=Date)](https://www.star-history.com/#kunge2013/kunge2013-skills&Date)

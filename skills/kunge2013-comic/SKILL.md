@@ -4,7 +4,7 @@ description: Knowledge comic creator supporting multiple art styles and tones. C
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-comic
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-comic
     requires:
       anyBins:
         - bun

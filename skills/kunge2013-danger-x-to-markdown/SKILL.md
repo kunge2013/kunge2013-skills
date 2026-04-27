@@ -4,7 +4,7 @@ description: Converts X (Twitter) tweets and articles to markdown with YAML fron
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-danger-x-to-markdown
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-danger-x-to-markdown
     requires:
       anyBins:
         - bun

@@ -7,7 +7,7 @@ Skills include `metadata.openclaw` in YAML front matter:
 ```yaml
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#<skill-name>
+    homepage: https://github.com/kunge2013/kunge2013-skills#<skill-name>
     requires:          # only for skills with scripts
       anyBins:
         - bun

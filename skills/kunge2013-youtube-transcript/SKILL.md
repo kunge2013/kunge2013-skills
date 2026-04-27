@@ -4,7 +4,7 @@ description: Downloads YouTube video transcripts/subtitles and cover images by U
 version: 1.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-youtube-transcript
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-youtube-transcript
     requires:
       anyBins:
         - bun

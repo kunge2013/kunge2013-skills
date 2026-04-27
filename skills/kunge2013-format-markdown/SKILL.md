@@ -4,7 +4,7 @@ description: Formats plain text or markdown files with frontmatter, titles, summ
 version: 1.57.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-format-markdown
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-format-markdown
     requires:
       anyBins:
         - bun

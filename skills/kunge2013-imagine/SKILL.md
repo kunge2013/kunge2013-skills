@@ -4,7 +4,7 @@ description: AI image generation with OpenAI GPT Image 2, Azure OpenAI, Google, 
 version: 1.58.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-imagine
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-imagine
     requires:
       anyBins:
         - bun

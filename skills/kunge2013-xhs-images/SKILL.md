@@ -4,7 +4,7 @@ description: "[Deprecated: use kunge2013-image-cards] Generates Xiaohongshu (Lit
 version: 1.56.2
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-xhs-images
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-xhs-images
 ---
 
 

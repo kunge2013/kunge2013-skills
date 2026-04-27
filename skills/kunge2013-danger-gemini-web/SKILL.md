@@ -4,7 +4,7 @@ description: Generates images and text via reverse-engineered Gemini Web API. Su
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-danger-gemini-web
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-danger-gemini-web
     requires:
       anyBins:
         - bun

@@ -4,7 +4,7 @@ description: Compresses images to WebP (default) or PNG with automatic tool sele
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-compress-image
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-compress-image
     requires:
       anyBins:
         - bun

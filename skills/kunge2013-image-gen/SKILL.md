@@ -4,7 +4,7 @@ description: "[Deprecated: use kunge2013-imagine] AI image generation with OpenA
 version: 1.56.4
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-image-gen
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-image-gen
     requires:
       anyBins:
         - bun

@@ -4,7 +4,7 @@ description: Generates professional slide deck images from content. Creates outl
 version: 1.56.2
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-slide-deck
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-slide-deck
     requires:
       anyBins:
         - bun

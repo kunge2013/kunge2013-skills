@@ -4,7 +4,7 @@ description: Posts content and articles to X (Twitter). Supports regular posts w
 version: 1.56.2
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-post-to-x
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-post-to-x
     requires:
       anyBins:
         - bun

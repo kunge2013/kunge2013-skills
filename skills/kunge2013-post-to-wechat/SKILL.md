@@ -4,7 +4,7 @@ description: Posts content to WeChat Official Account (微信公众号) via API 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-post-to-wechat
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-post-to-wechat
     requires:
       anyBins:
         - bun

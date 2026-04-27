@@ -4,7 +4,7 @@ description: Fetch any URL and convert to markdown using kunge2013-fetch CLI (Ch
 version: 1.61.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-url-to-markdown
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-url-to-markdown
     requires:
       anyBins:
         - bun

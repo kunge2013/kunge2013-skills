@@ -40,13 +40,13 @@
   "description": "Shared Markdown rendering and WeChat-friendly HTML utilities for kunge2013 skills.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JimLiu/kunge2013-skills.git",
+    "url": "git+https://github.com/kunge2013/kunge2013-skills.git",
     "directory": "packages/kunge2013-md"
   },
   "bugs": {
-    "url": "https://github.com/JimLiu/kunge2013-skills/issues"
+    "url": "https://github.com/kunge2013/kunge2013-skills/issues"
   },
-  "homepage": "https://github.com/JimLiu/kunge2013-skills/tree/main/packages/kunge2013-md#readme",
+  "homepage": "https://github.com/kunge2013/kunge2013-skills/tree/main/packages/kunge2013-md#readme",
   "publishConfig": {
     "access": "public"
   },

@@ -14,7 +14,7 @@ Skills shared by kunge2013 for improving daily work efficiency with Claude Code.
 ### Quick Install (Recommended)
 
 ```bash
-npx skills add jimliu/kunge2013-skills
+npx skills add kunge2013/kunge2013-skills
 ```
 
 ### Publish to ClawHub / OpenClaw
@@ -43,7 +43,7 @@ Publishing to ClawHub releases the published skill under `MIT-0`, per ClawHub's 
 Run the following command in Claude Code:
 
 ```bash
-/plugin marketplace add JimLiu/kunge2013-skills
+/plugin marketplace add kunge2013/kunge2013-skills
 ```
 
 ### Install Skills
@@ -66,7 +66,7 @@ Run the following command in Claude Code:
 
 Simply tell Claude Code:
 
-> Please install Skills from github.com/JimLiu/kunge2013-skills
+> Please install Skills from github.com/kunge2013/kunge2013-skills
 
 ### Available Plugin
 
@@ -1272,4 +1272,4 @@ MIT
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JimLiu/kunge2013-skills&type=Date)](https://www.star-history.com/#JimLiu/kunge2013-skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=kunge2013/kunge2013-skills&type=Date)](https://www.star-history.com/#kunge2013/kunge2013-skills&Date)

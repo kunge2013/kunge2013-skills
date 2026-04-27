@@ -4,7 +4,7 @@ description: Analyzes article structure, identifies positions requiring visual a
 version: 1.58.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-article-illustrator
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-article-illustrator
 ---
 
 # Article Illustrator

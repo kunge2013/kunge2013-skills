@@ -4,7 +4,7 @@ description: Generates infographic image card series with 12 visual styles, 8 la
 version: 1.56.2
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-image-cards
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-image-cards
 ---
 
 # Image Card Series Generator

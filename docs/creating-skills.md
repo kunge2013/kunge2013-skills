@@ -21,7 +21,7 @@ description: <Third-person description. What it does + when to use it.>
 version: <semver matching marketplace.json>
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-<name>
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-<name>
     requires:          # include only if skill has scripts
       anyBins:
         - bun

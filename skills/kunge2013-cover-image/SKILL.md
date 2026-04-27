@@ -4,7 +4,7 @@ description: Generates article cover images with 5 dimensions (type, palette, re
 version: 1.56.2
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-cover-image
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-cover-image
 ---
 
 # Cover Image Generator

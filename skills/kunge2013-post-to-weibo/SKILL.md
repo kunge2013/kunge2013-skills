@@ -4,7 +4,7 @@ description: Posts content to Weibo (微博). Supports regular posts with text, 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-post-to-weibo
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-post-to-weibo
     requires:
       anyBins:
         - bun

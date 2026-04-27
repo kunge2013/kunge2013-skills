@@ -4,7 +4,7 @@ description: Generate professional infographics with 21 layout types and 21 visu
 version: 1.57.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-infographic
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-infographic
 ---
 
 # Infographic Generator

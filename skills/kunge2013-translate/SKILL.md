@@ -4,7 +4,7 @@ description: Translates articles and documents between languages with three mode
 version: 1.59.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/kunge2013-skills#kunge2013-translate
+    homepage: https://github.com/kunge2013/kunge2013-skills#kunge2013-translate
     requires:
       anyBins:
         - bun
