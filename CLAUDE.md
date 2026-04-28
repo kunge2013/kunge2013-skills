@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the **kunge2013-skills** repository — a Claude Code marketplace plugin providing productivity tools including project architecture analysis, diagram conversion utilities, skill creation guides, and demonstration skills.
 
-**Current Skills**: hello-world, skill-creator, p-a-a (Project Architecture Analyzer), puml2jpg
+**Current Skills**: hello-world, skill-creator, p-a-a (Project Architecture Analyzer), puml2jpg, kunge2013-post-to-wechat
+
+**Maintainer**: kunge2013 (kun_ja@163.com)
 
 ## Architecture
 

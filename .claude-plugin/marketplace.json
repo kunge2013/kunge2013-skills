@@ -4,7 +4,7 @@
   "description": "Personal Claude Code skills hub with custom productivity tools",
   "owner": {
     "name": "kunge2013",
-    "email": ""
+    "email": "kun_ja@163.com"
   },
   "plugins": [
     {
@@ -13,7 +13,7 @@
       "version": "1.0.0",
       "author": {
         "name": "kunge2013",
-        "email": ""
+        "email": "kun_ja@163.com"
       },
       "source": "./skills/hello-world",
       "category": "demo"
@@ -24,7 +24,7 @@
       "version": "1.0.0",
       "author": {
         "name": "kunge2013",
-        "email": ""
+        "email": "kun_ja@163.com"
       },
       "source": "./skills/skill-creator",
       "category": "utility"
@@ -35,7 +35,7 @@
       "version": "1.0.0",
       "author": {
         "name": "kunge2013",
-        "email": ""
+        "email": "kun_ja@163.com"
       },
       "source": "./skills/p-a-a",
       "category": "analysis"
@@ -46,7 +46,7 @@
       "version": "1.0.0",
       "author": {
         "name": "kunge2013",
-        "email": ""
+        "email": "kun_ja@163.com"
       },
       "source": "./skills/puml2jpg",
       "category": "utility"
@@ -57,7 +57,7 @@
       "version": "1.56.1",
       "author": {
         "name": "kunge2013",
-        "email": ""
+        "email": "kun_ja@163.com"
       },
       "source": "./skills/kunge2013-post-to-wechat",
       "category": "utility"
