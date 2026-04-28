@@ -1,6 +1,6 @@
 {
   "name": "kunge2013-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal Claude Code skills hub marketplace with project architecture analysis, diagram tools, and productivity utilities",
   "main": "index.js",
   "scripts": {

@@ -90,6 +90,18 @@ npm install github:kunge2013/kunge2013-skills#v1.0.0
 - **依赖**: 使用 public PlantUML 服务器 (plantuml.com) 进行处理
 - **示例**: `/puml2jpg /path/to/diagram.puml`
 
+#### kunge2013-post-to-wechat
+- **功能**: 发布内容到微信公众号，支持文章发布和图文发布
+- **用途**:
+  - 用户提到"发布公众号"、"post to wechat"、"微信公众号"、"贴图/图文/文章"时
+  - 支持通过 API 或浏览器 CDP 发布文章（文章）
+  - 支持图文发布（贴图/图文），最多 9 张图片
+  - Markdown 文章默认将普通外部链接转换为底部引用
+- **发布方式**:
+  - API 方法：快速，需要 API 凭证
+  - 浏览器方法：较慢，需要已登录的 Chrome 会话
+- **示例**: `/kunge2013-post-to-wechat --markdown article.md --theme default`
+
 ### 📊 Analysis Skills
 
 #### p-a-a
